@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 100%;
+  width: 240px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:#ffffff ;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #808080
+}
+
+.main {
+  margin-left: 240px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <br />
+        <a href="/Anasayfa/Index"><i class="fa fa-fw fa-home"></i> Anasayfa</a><br />
+        <a href="/Kameralar/Index"><i class="fa fa-fw fa-video-camera"></i> Kameralar</a><br />
+        <a href="/Personel/Index"><i class="fa fa-user-o"></i>   Personeller</a><br />
+        <a href="/Firmalar/Index"><i class="fa fa-industry"></i> Firmalar</a><br />
+        <a href="/Ziyaretci/Index"><i class="fa fa-users"></i> Ziyaretçiler</a><br />
+        <a href="/Rapor/Index"><i class="fa fa-pencil-square-o"></i> Rapor</a><br />
+        <a href="/Takvim/Index"><i class="fa fa-calendar"></i> Randevu</a><br />
+        <a href="/KameraEkrani/Index"><i class="fa fa-file-video-o"></i> Kamera Ekranı</a><br />
+        <a href="/Vitrin/Index"><i class="fa fa-arrow-circle-right"></i> Çıkış Yap</a><br />
+        
+
+    </div>
+
+    <div class="main">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

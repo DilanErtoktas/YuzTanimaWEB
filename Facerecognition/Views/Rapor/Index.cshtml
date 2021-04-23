@@ -1,0 +1,34 @@
+﻿@using Facerecognition.Models.Entity
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2 class="well">Rapor</h2>
+
+<div style="margin-bottom:15px; margin-top:15px;">
+    <input type="text" class="form-control" placeholder="Rapor Ara" />
+</div>
+
+<table class="table table-bordered">
+    <tr class=" btn-danger">
+        <th>Personel Id</th>
+        <th>Personel Giriş</th>
+        <th>Personel Çıkış</th>
+        <th>Personel Son Konum</th>
+
+    </tr>
+    @foreach (var rapor in Model)
+    {
+        <tr>
+            <td>@rapor.personelid</td>
+            <td class=" alert-danger">@rapor.giriszamani</td>
+            <td class=" alert-danger">@rapor.cikiszamani</td>
+            <td>Giriş</td>
+           
+
+
+        </tr>
+    }
+</table>

@@ -1,0 +1,62 @@
+﻿@model Facerecognition.Models.Entity.Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Personel Adı</label>
+        <input type="text" class="form-control" name="personeladi" />
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Personel Soyadı</label>
+        <input type="text" class="form-control" name="personelsoyadi" />
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Personel Birimi</label>
+        <input type="text" class="form-control" name="birimi" />
+    </div>
+
+
+    <div style="margin-top:15px">
+        <label>Personel Oda ID</label>
+        <input type="text" class="form-control" name="odaid" />
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Personel Giriş</label>
+        <input type="text" class="form-control" name="giriszamani" />
+    </div>
+
+
+    <div style="margin-top:15px">
+        <label>Personel Çıkış</label>
+        <input type="text" class="form-control" name="cikiszamani" />
+    </div>
+
+
+    <div style="margin-top:15px">
+        <label>Personel Maaş</label>
+        <input type="text" class="form-control" name="personelmaas" />
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Personel Mesai</label>
+        <input type="text" class="form-control" name="mesai" />
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Personel Ziyaret Saatleri</label>
+        <input type="text" class="form-control" name="ziyaretsaati" />
+    </div>
+
+
+    <div style="margin-top:15px">
+        <button class="btn btn-danger" id="Btn1">Personel Ekle</button>
+    </div>
+</form>
+
