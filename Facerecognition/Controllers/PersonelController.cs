@@ -36,5 +36,35 @@ namespace Facerecognition.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult PersonelGetir(int id)
+        {
+            var prss = db.Personel.Find(id);
+            return View("PersonelGetir", prss);
+        }
+
+        public ActionResult PersonelGuncelle(Personel p)
+        {
+            var prss = db.Personel.Find(p.personelid);
+            prss.kullaniciadi = p.kullaniciadi;
+            prss.kullanicisifre = p.kullanicisifre;
+            prss.kimlikno = p.kimlikno;
+            prss.firmaid = p.firmaid;
+            prss.personeladi = p.personeladi;
+            prss.personelsoyadi = p.personelsoyadi;
+            prss.personelmail = p.personelmail;
+            prss.adres = p.adres;
+            prss.telefon = p.telefon;
+            prss.birimi = p.birimi;
+            prss.giriszamani = p.giriszamani;
+            prss.cikiszamani = p.cikiszamani;
+            prss.ziyaretsaati = p.ziyaretsaati;
+            prss.maas = p.maas;
+            prss.mesai = p.mesai;
+            prss.odaid = p.odaid;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }

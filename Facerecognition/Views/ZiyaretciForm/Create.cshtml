@@ -1,40 +1,45 @@
-﻿
+﻿@using Facerecognition.Models.Entity
+@model List<Ziyaretci>
 @{
     ViewBag.Title = "Create";
 }
 
 <h2>Ziyaretçi Formu</h2>
-<br /><br />
-      <form action="/ZiyaretciForm/Create" method="post">
-          <label>TC: <input type="text" name="kimlikno" /></label>
-          <br />
-          <br />
-          <label>Adı:<input type="text" name="ziyaretciadi" /></label>
-          <br />
-          <br />
-          <label>Soyadı: <input type="text" name="ziyaretcisoyadi" /></label>
-          <br />
-          <br />
-       
-          <label>Mail: <input type="text" name="mail" /></label>
-          <br />
-          
-          <br />
-          
-          <label>Adres:   <input type="text" name="adres" /></label>
-          <br />
-          <br />
-       
-          <label>Ziyaret Etmek İstediği Personel: <input type="text" name="personelid" /></label>
-          <br />
-          <br />
-          <label>Ziyaret Sebebi:  <input type="text" name="ziyaretsebebi" /></label>
-          <br />
-          <br />
-          <label>Ziyaret Zamanı: <input type="text" name="ziyaretzamani" /></label>
-          <br />
-          
-          <br />
-          <input type="submit" value="Gönder" />
-      </form>
+<br />
+<br />
+<form action="/ZiyaretciForm/Create" method="post">
+    <label>TC: <input type="text" name="kimlikno" /></label>
+    <br />
+    <br />
+    <label>Adı:<input type="text" name="ziyaretciadi" /></label>
+    <br />
+    <br />
+    <label>Soyadı: <input type="text" name="ziyaretcisoyadi" /></label>
+    <br />
+    <br />
 
+    <label>Mail: <input type="text" name="mail" /></label>
+    <br />
+
+    <br />
+
+    <label>Adres:   <input type="text" name="adres" /></label>
+    <br />
+    <br />
+
+    <label>Ziyaret Etmek İstediği Personel: <input type="text" name="personelid" /></label>
+    <br />
+    <br />
+    <label>Ziyaret Sebebi:  <input type="text" name="ziyaretsebebi" /></label>
+    <br />
+    <br />
+    <label>Ziyaret Zamanı: <input type="text" name="ziyaretzamani" /></label>
+    <br />
+
+    <br />
+
+
+
+
+    <button class="btn btn-danger" type="submit">Gönder</button>
+</form>

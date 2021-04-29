@@ -9,24 +9,28 @@ namespace Facerecognition.Controllers
 {
     public class ZiyaretciFormController : Controller
     {
+        
         // GET: ZiyaretciForm
+        DbFaceRecEntities db = new DbFaceRecEntities();
         public ActionResult Index()
         {
-            return View();
+            var degerler = db.Ziyaretci.ToList();
+            return View(degerler);
         }
-
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Create(FormCollection form)
+        public ActionResult Create(Ziyaretci z)
         {
-            
-            
-            
-            return View();
+            db.Ziyaretci.Add(z);
+            db.SaveChanges();
+            return RedirectToAction("Create");
+
         }
 
     }
+
 }
