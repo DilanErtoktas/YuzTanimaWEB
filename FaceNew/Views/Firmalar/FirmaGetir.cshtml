@@ -1,0 +1,23 @@
+﻿@model FaceNew.Models.Entity.firma
+@{ ViewBag.Title = "FirmaGetir";
+                Layout = "~/Views/Shared/Layout.cshtml"; }
+
+@using (Html.BeginForm("FirmaGuncelle", "Firmalar", FormMethod.Post))
+{
+<div style="margin-bottom:15px"></div>
+                <div class="form-group">
+                    @Html.LabelFor(f => f.firma_ID)
+                    @Html.TextBoxFor(f => f.firma_ID, new { @class = "form-control" })
+                    <br />
+                    <label>Firma Adı</label>
+                    @Html.TextBoxFor(f => f.firma_ismi, new { @class = "form-control" })
+                    <label>Firma Tel</label>
+                    @Html.TextBoxFor(f => f.firma_tel, new { @class = "form-control" })
+                    <label>Firma Mail</label>
+                    @Html.TextBoxFor(f => f.firma_mail, new { @class = "form-control" })
+
+
+                </div>
+                                <div>
+                                    <button class="btn btn-danger">Güncelle</button>
+                                </div>}

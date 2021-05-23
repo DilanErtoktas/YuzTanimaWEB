@@ -1,0 +1,38 @@
+﻿@*@using FaceNew.Models.Entity
+@model List<personel>*@
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml"; }
+
+<h2 class="well">Personeller</h2>
+
+@*<div style="margin-bottom:15px; margin-top:15px;">
+    <input type="text" class="form-control" placeholder="Personel Ara" />
+</div>
+
+<table class="table table-bordered">
+    <tr class=" alert-success">
+        <th>Personel Id</th>
+        <th>Kullanici Adi</th>
+        <th>Kullanici Sifre</th>
+        <th>Personel Adi Soyadi</th>
+        <th>Personel Mail</th>
+        <th>Personel Adres</th>
+        <th>Personel Telefon</th>
+        <th>Personel Güncelle</th>
+    </tr>
+    @foreach (var prs in Model)
+    {
+<tr>
+    <td>@prs.personel_ID</td>
+    <td>@prs.kullanıcı_ADI</td>
+    <td>@prs.kullanıcı_sifre</td>
+    <td>@prs.Padsoyad</td>
+    <td>@prs.mail</td>
+    <td>@prs.adres</td>
+    <td>@prs.telefon</td>
+    <td><a href="/Panel/PersonelGetir/@prs.personel_ID" class="btn btn-success">Güncelle</a></td>
+
+
+</tr>
+}
+</table>*@

@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="facerecModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="firma">
+    <Key>
+      <PropertyRef Name="firma_ID" />
+    </Key>
+    <Property Name="firma_ID" Type="Int16" Nullable="false" />
+    <Property Name="firma_ismi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="firma_tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="firma_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="kamera" Relationship="Self.FK__kamera__firma_ID__1920BF5C" FromRole="firma" ToRole="kamera" />
+    <NavigationProperty Name="personel" Relationship="Self.FK__personel__firma___145C0A3F" FromRole="firma" ToRole="personel" />
+    <NavigationProperty Name="ziyaretci" Relationship="Self.FK__ziyaretci__firma__1ED998B2" FromRole="firma" ToRole="ziyaretci" />
+  </EntityType>
+  <EntityType Name="kamera">
+    <Key>
+      <PropertyRef Name="kamera_IP" />
+    </Key>
+    <Property Name="kamera_IP" Type="Int32" Nullable="false" />
+    <Property Name="personel_ID" Type="Int16" />
+    <Property Name="firma_ID" Type="Int16" />
+    <Property Name="kamera_konum_isimlendirme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="firma" Relationship="Self.FK__kamera__firma_ID__1920BF5C" FromRole="kamera" ToRole="firma" />
+    <NavigationProperty Name="personel" Relationship="Self.FK__kamera__personel__182C9B23" FromRole="kamera" ToRole="personel" />
+  </EntityType>
+  <EntityType Name="oda">
+    <Key>
+      <PropertyRef Name="oda_ID" />
+    </Key>
+    <Property Name="oda_ID" Type="Int16" Nullable="false" />
+    <Property Name="oda_birimid" Type="Int16" />
+    <Property Name="oda_konum_mesafe" Type="Int16" />
+    <Property Name="oda_yol_haritası" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="personel" Relationship="Self.FK__personel__oda_ID__15502E78" FromRole="oda" ToRole="personel" />
+  </EntityType>
+  <EntityType Name="personel">
+    <Key>
+      <PropertyRef Name="personel_ID" />
+    </Key>
+    <Property Name="personel_ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanıcı_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="kullanıcı_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="kimlik_numarası" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="firma_ID" Type="Int16" />
+    <Property Name="Padsoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telefon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="birim_ID" Type="Int16" />
+    <Property Name="ziyaret_saatleri" Type="DateTime" Precision="0" />
+    <Property Name="maas" Type="Int32" />
+    <Property Name="mesai" Type="Byte" />
+    <Property Name="oda_ID" Type="Int16" />
+    <Property Name="personel_resim" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="personel_anahtar" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="firma" Relationship="Self.FK__personel__firma___145C0A3F" FromRole="personel" ToRole="firma" />
+    <NavigationProperty Name="kamera" Relationship="Self.FK__kamera__personel__182C9B23" FromRole="personel" ToRole="kamera" />
+    <NavigationProperty Name="oda" Relationship="Self.FK__personel__oda_ID__15502E78" FromRole="personel" ToRole="oda" />
+    <NavigationProperty Name="ziyaretci" Relationship="Self.FK__ziyaretci__perso__1FCDBCEB" FromRole="personel" ToRole="ziyaretci" />
+    <NavigationProperty Name="personel_birim" Relationship="Self.FK_personel_personel_birim" FromRole="personel" ToRole="personel_birim" />
+  </EntityType>
+  <EntityType Name="personel_birim">
+    <Key>
+      <PropertyRef Name="birim_ID" />
+    </Key>
+    <Property Name="birim_ID" Type="Int16" Nullable="false" />
+    <Property Name="birimi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="personel" Relationship="Self.FK_personel_personel_birim" FromRole="personel_birim" ToRole="personel" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ziyaretci">
+    <Key>
+      <PropertyRef Name="ziyaretci_ID" />
+    </Key>
+    <Property Name="ziyaretci_ID" Type="Int16" Nullable="false" />
+    <Property Name="kimlik_nu" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="firma_ID" Type="Int16" />
+    <Property Name="isimsoyisim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telefon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="personel_ID" Type="Int16" />
+    <Property Name="ziyaret_sebebi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ziyaret_saati" Type="DateTime" Precision="0" />
+    <Property Name="ziyaretci_resim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ziyaretci_anahtar" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ziyaret_durum" Type="Boolean" />
+    <NavigationProperty Name="firma" Relationship="Self.FK__ziyaretci__firma__1ED998B2" FromRole="ziyaretci" ToRole="firma" />
+    <NavigationProperty Name="personel" Relationship="Self.FK__ziyaretci__perso__1FCDBCEB" FromRole="ziyaretci" ToRole="personel" />
+  </EntityType>
+  <Association Name="FK__kamera__firma_ID__1920BF5C">
+    <End Role="firma" Type="Self.firma" Multiplicity="0..1" />
+    <End Role="kamera" Type="Self.kamera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="firma">
+        <PropertyRef Name="firma_ID" />
+      </Principal>
+      <Dependent Role="kamera">
+        <PropertyRef Name="firma_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__personel__firma___145C0A3F">
+    <End Role="firma" Type="Self.firma" Multiplicity="0..1" />
+    <End Role="personel" Type="Self.personel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="firma">
+        <PropertyRef Name="firma_ID" />
+      </Principal>
+      <Dependent Role="personel">
+        <PropertyRef Name="firma_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ziyaretci__firma__1ED998B2">
+    <End Role="firma" Type="Self.firma" Multiplicity="0..1" />
+    <End Role="ziyaretci" Type="Self.ziyaretci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="firma">
+        <PropertyRef Name="firma_ID" />
+      </Principal>
+      <Dependent Role="ziyaretci">
+        <PropertyRef Name="firma_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__kamera__personel__182C9B23">
+    <End Role="personel" Type="Self.personel" Multiplicity="0..1" />
+    <End Role="kamera" Type="Self.kamera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personel">
+        <PropertyRef Name="personel_ID" />
+      </Principal>
+      <Dependent Role="kamera">
+        <PropertyRef Name="personel_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__personel__oda_ID__15502E78">
+    <End Role="oda" Type="Self.oda" Multiplicity="0..1" />
+    <End Role="personel" Type="Self.personel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oda">
+        <PropertyRef Name="oda_ID" />
+      </Principal>
+      <Dependent Role="personel">
+        <PropertyRef Name="oda_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ziyaretci__perso__1FCDBCEB">
+    <End Role="personel" Type="Self.personel" Multiplicity="0..1" />
+    <End Role="ziyaretci" Type="Self.ziyaretci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personel">
+        <PropertyRef Name="personel_ID" />
+      </Principal>
+      <Dependent Role="ziyaretci">
+        <PropertyRef Name="personel_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personel_personel_birim">
+    <End Role="personel_birim" Type="Self.personel_birim" Multiplicity="0..1" />
+    <End Role="personel" Type="Self.personel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personel_birim">
+        <PropertyRef Name="birim_ID" />
+      </Principal>
+      <Dependent Role="personel">
+        <PropertyRef Name="birim_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="facerecEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="firma" EntityType="Self.firma" />
+    <EntitySet Name="kamera" EntityType="Self.kamera" />
+    <EntitySet Name="oda" EntityType="Self.oda" />
+    <EntitySet Name="personel" EntityType="Self.personel" />
+    <EntitySet Name="personel_birim" EntityType="Self.personel_birim" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="ziyaretci" EntityType="Self.ziyaretci" />
+    <AssociationSet Name="FK__kamera__firma_ID__1920BF5C" Association="Self.FK__kamera__firma_ID__1920BF5C">
+      <End Role="firma" EntitySet="firma" />
+      <End Role="kamera" EntitySet="kamera" />
+    </AssociationSet>
+    <AssociationSet Name="FK__personel__firma___145C0A3F" Association="Self.FK__personel__firma___145C0A3F">
+      <End Role="firma" EntitySet="firma" />
+      <End Role="personel" EntitySet="personel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ziyaretci__firma__1ED998B2" Association="Self.FK__ziyaretci__firma__1ED998B2">
+      <End Role="firma" EntitySet="firma" />
+      <End Role="ziyaretci" EntitySet="ziyaretci" />
+    </AssociationSet>
+    <AssociationSet Name="FK__kamera__personel__182C9B23" Association="Self.FK__kamera__personel__182C9B23">
+      <End Role="personel" EntitySet="personel" />
+      <End Role="kamera" EntitySet="kamera" />
+    </AssociationSet>
+    <AssociationSet Name="FK__personel__oda_ID__15502E78" Association="Self.FK__personel__oda_ID__15502E78">
+      <End Role="oda" EntitySet="oda" />
+      <End Role="personel" EntitySet="personel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ziyaretci__perso__1FCDBCEB" Association="Self.FK__ziyaretci__perso__1FCDBCEB">
+      <End Role="personel" EntitySet="personel" />
+      <End Role="ziyaretci" EntitySet="ziyaretci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personel_personel_birim" Association="Self.FK_personel_personel_birim">
+      <End Role="personel_birim" EntitySet="personel_birim" />
+      <End Role="personel" EntitySet="personel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

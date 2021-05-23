@@ -1,0 +1,37 @@
+﻿@using FaceNew.Models.Entity
+@model List<personel_birim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2 class="well">Birimler</h2>
+
+<div style="margin-bottom:15px; margin-top:15px;">
+    <input type="text" class="form-control" placeholder="Birim Ara" />
+</div>
+
+<table class="table table-bordered">
+    <tr class="alert-success">
+        <th>Birim Id</th>
+        <th>Birimi</th>
+        <th>Firma Sil</th>
+        <th>Firma Güncelle</th>
+
+    </tr>
+    @foreach (var brm in Model)
+    {
+        <tr>
+            <td>@brm.birim_ID</td>
+            <td>@brm.birimi</td>
+            
+
+            <td><a href="/Birim/BirimSil/@brm.birim_ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Birim/BirimGetir/@brm.birim_ID" class="btn btn-success">Güncelle</a></td>
+
+
+        </tr>
+    }
+</table>
+<a href="/Birim/BirimEkle" class="btn btn-primary">Yeni Birim Ekle</a>
+

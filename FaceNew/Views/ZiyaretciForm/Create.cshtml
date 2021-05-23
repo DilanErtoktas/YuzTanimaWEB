@@ -1,0 +1,40 @@
+﻿@using FaceNew.Models.Entity
+@model List<ziyaretci>
+@{ ViewBag.Title = "Create"; }
+
+<h2>Ziyaretçi Formu</h2>
+<br />
+<br />
+<form action="/ZiyaretciForm/Create" method="post">
+    <label>TC: <input type="text" name="kimlik_nu" /></label>
+    <br />
+    <br />
+    <label>Adı:<input type="text" name="isimsoyisim" /></label>
+    <br />
+
+    <br />
+
+    <label>Mail: <input type="text" name="mail" /></label>
+    <br />
+
+    <br />
+
+    <label>Adres:   <input type="text" name="adres" /></label>
+    <br />
+    <br />
+
+    <label>Ziyaret Etmek İstediği Personel: <input type="text" name="personel_ID" /></label>
+    <br />
+    <br />
+    <label>Ziyaret Sebebi:  <input type="text" name="ziyaret_sebebi" /></label>
+    <br />
+    <br />
+    <label>Ziyaret Zamanı: <input type="text" name="ziyaret_saati" /></label>
+    <br />
+    <br />
+
+
+
+
+    <button class="btn btn-danger" type="submit">Gönder</button>
+</form>

@@ -1,0 +1,40 @@
+﻿@using FaceNew.Models.Entity
+@model List<firma>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2 class="well">Firmalar</h2>
+
+<div style="margin-bottom:15px; margin-top:15px;">
+    <input type="text" class="form-control" placeholder="Firma Ara" />
+</div>
+
+<table class="table table-bordered">
+    <tr class="alert-success">
+        <th>Firma Id</th>
+        <th>Firma Adı</th>
+        <th>Firma Telefon</th>
+        <th>Firma Mail</th>
+        <th>Firma Sil</th>
+        <th>Firma Güncelle</th>
+
+    </tr>
+    @foreach (var frm in Model)
+    {
+        <tr>
+            <td>@frm.firma_ID</td>
+            <td>@frm.firma_ismi</td>
+            <td>@frm.firma_tel</td>
+            <td>@frm.firma_mail</td>
+
+            <td><a href="/Firmalar/FirmaSil/@frm.firma_ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Firmalar/FirmaGetir/@frm.firma_ID" class="btn btn-success">Güncelle</a></td>
+
+
+        </tr>
+    }
+</table>
+<a href="/Firmalar/FirmaEkle" class="btn btn-primary">Yeni Firma Ekle</a>
+

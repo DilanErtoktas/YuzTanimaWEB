@@ -1,0 +1,45 @@
+﻿@model FaceNew.Models.Entity.personel
+@{ ViewBag.Title = "PersonelGetir";
+                Layout = "~/Views/Shared/Layout.cshtml"; }
+
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+{
+<div style="margin-bottom:15px"></div>
+                <div class="form-group">
+                    @Html.LabelFor(p => p.personel_ID)
+                    @Html.TextBoxFor(p => p.personel_ID, new { @class = "form-control" })
+                    <br />
+                    <label>Kullanici Adı</label>
+                    @Html.TextBoxFor(p => p.kullanıcı_ADI, new { @class = "form-control" })
+                    <label>Kullanici Şifre</label>
+                    @Html.TextBoxFor(p => p.kullanıcı_sifre, new { @class = "form-control" })
+                    <label>Kullanici Kimlik No</label>
+                    @Html.TextBoxFor(p => p.kimlik_numarası, new { @class = "form-control" })
+                    <label>Firma Id</label>
+                    @Html.TextBoxFor(p => p.firma_ID, new { @class = "form-control" })
+                    <label>Personel Adı</label>
+                    @Html.TextBoxFor(p => p.Padsoyad, new { @class = "form-control" })
+                    <label>Personel Mail</label>
+                    @Html.TextBoxFor(p => p.mail, new { @class = "form-control" })
+                    <label>Adres</label>
+                    @Html.TextBoxFor(p => p.adres, new { @class = "form-control" })
+                    <label>Telefon</label>
+                    @Html.TextBoxFor(p => p.telefon, new { @class = "form-control" })
+                    <label>Birimi</label>
+                    @Html.TextBoxFor(p => p.birim_ID, new { @class = "form-control" })
+                    <label>Ziyaret Saati</label>
+                    @Html.TextBoxFor(p => p.ziyaret_saatleri, new { @class = "form-control" })
+                    <label>Maas</label>
+                    @Html.TextBoxFor(p => p.maas, new { @class = "form-control" })
+                    <label>Mesai</label>
+                    @Html.TextBoxFor(p => p.mesai, new { @class = "form-control" })
+                    <label>Oda Id</label>
+                    @Html.TextBoxFor(p => p.oda_ID, new { @class = "form-control" })
+                    <label>Personel Resim</label>
+                    @Html.TextBoxFor(p => p.personel_resim, new { @class = "form-control" })
+                    <label>Personel Anahtar</label>
+                    @Html.TextBoxFor(p => p.personel_anahtar, new { @class = "form-control" })
+                </div>
+                                <div>
+                                    <button class="btn btn-danger">Güncelle</button>
+                                </div>}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bfed162c824e487c9513cb5fad8db710" Name="Diagram1">
+        <EntityTypeShape EntityType="facerecModel.firma" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="facerecModel.kamera" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="facerecModel.oda" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="facerecModel.personel" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="facerecModel.personel_birim" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="facerecModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="facerecModel.ziyaretci" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="facerecModel.FK__kamera__firma_ID__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="facerecModel.FK__personel__firma___145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="facerecModel.FK__ziyaretci__firma__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="facerecModel.FK__kamera__personel__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="facerecModel.FK__personel__oda_ID__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="facerecModel.FK__ziyaretci__perso__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="facerecModel.FK_personel_personel_birim" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,39 @@
+﻿@using FaceNew.Models.Entity
+@model List<kamera>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2 class="well">Kameralar</h2>
+
+<div style="margin-bottom:15px; margin-top:15px;">
+    <input type="text" class="form-control" placeholder="Kamera Ara" />
+</div>
+
+<table class="table table-bordered">
+    <tr class="  alert-success">
+        <th>Kamera Ip</th>
+        <th>Personel Id</th>
+        <th>Firma Id</th>
+        <th>Kamera Konum </th>
+        <th>Kamera Sil</th>
+        <th>Kamera Güncelle</th>
+
+    </tr>
+    @foreach (var kmr in Model)
+    {
+        <tr>
+            <td>@kmr.kamera_IP</td>
+            <td>@kmr.personel_ID</td>
+            <td>@kmr.firma_ID</td>
+            <td>@kmr.kamera_konum_isimlendirme</td>
+            <td><a href="/Kameralar/KameraSil/@kmr.kamera_IP" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kameralar/KameraGetir/@kmr.kamera_IP" class="btn btn-success">Güncelle</a></td>
+
+
+        </tr>
+    }
+</table>
+
+

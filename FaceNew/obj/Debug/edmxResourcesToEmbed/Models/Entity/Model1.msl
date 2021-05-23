@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="facerecModelStoreContainer" CdmEntityContainer="facerecEntities">
+    <EntitySetMapping Name="firma">
+      <EntityTypeMapping TypeName="facerecModel.firma">
+        <MappingFragment StoreEntitySet="firma">
+          <ScalarProperty Name="firma_ID" ColumnName="firma_ID" />
+          <ScalarProperty Name="firma_ismi" ColumnName="firma_ismi" />
+          <ScalarProperty Name="firma_tel" ColumnName="firma_tel" />
+          <ScalarProperty Name="firma_mail" ColumnName="firma_mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kamera">
+      <EntityTypeMapping TypeName="facerecModel.kamera">
+        <MappingFragment StoreEntitySet="kamera">
+          <ScalarProperty Name="kamera_IP" ColumnName="kamera_IP" />
+          <ScalarProperty Name="personel_ID" ColumnName="personel_ID" />
+          <ScalarProperty Name="firma_ID" ColumnName="firma_ID" />
+          <ScalarProperty Name="kamera_konum_isimlendirme" ColumnName="kamera_konum_isimlendirme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oda">
+      <EntityTypeMapping TypeName="facerecModel.oda">
+        <MappingFragment StoreEntitySet="oda">
+          <ScalarProperty Name="oda_ID" ColumnName="oda_ID" />
+          <ScalarProperty Name="oda_birimid" ColumnName="oda_birimid" />
+          <ScalarProperty Name="oda_konum_mesafe" ColumnName="oda_konum_mesafe" />
+          <ScalarProperty Name="oda_yol_haritası" ColumnName="oda_yol_haritası" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personel">
+      <EntityTypeMapping TypeName="facerecModel.personel">
+        <MappingFragment StoreEntitySet="personel">
+          <ScalarProperty Name="personel_ID" ColumnName="personel_ID" />
+          <ScalarProperty Name="kullanıcı_ADI" ColumnName="kullanıcı_ADI" />
+          <ScalarProperty Name="kullanıcı_sifre" ColumnName="kullanıcı_sifre" />
+          <ScalarProperty Name="kimlik_numarası" ColumnName="kimlik_numarası" />
+          <ScalarProperty Name="firma_ID" ColumnName="firma_ID" />
+          <ScalarProperty Name="Padsoyad" ColumnName="Padsoyad" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="birim_ID" ColumnName="birim_ID" />
+          <ScalarProperty Name="ziyaret_saatleri" ColumnName="ziyaret_saatleri" />
+          <ScalarProperty Name="maas" ColumnName="maas" />
+          <ScalarProperty Name="mesai" ColumnName="mesai" />
+          <ScalarProperty Name="oda_ID" ColumnName="oda_ID" />
+          <ScalarProperty Name="personel_resim" ColumnName="personel_resim" />
+          <ScalarProperty Name="personel_anahtar" ColumnName="personel_anahtar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personel_birim">
+      <EntityTypeMapping TypeName="facerecModel.personel_birim">
+        <MappingFragment StoreEntitySet="personel_birim">
+          <ScalarProperty Name="birim_ID" ColumnName="birim_ID" />
+          <ScalarProperty Name="birimi" ColumnName="birimi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="facerecModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ziyaretci">
+      <EntityTypeMapping TypeName="facerecModel.ziyaretci">
+        <MappingFragment StoreEntitySet="ziyaretci">
+          <ScalarProperty Name="ziyaretci_ID" ColumnName="ziyaretci_ID" />
+          <ScalarProperty Name="kimlik_nu" ColumnName="kimlik_nu" />
+          <ScalarProperty Name="firma_ID" ColumnName="firma_ID" />
+          <ScalarProperty Name="isimsoyisim" ColumnName="isimsoyisim" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="personel_ID" ColumnName="personel_ID" />
+          <ScalarProperty Name="ziyaret_sebebi" ColumnName="ziyaret_sebebi" />
+          <ScalarProperty Name="ziyaret_saati" ColumnName="ziyaret_saati" />
+          <ScalarProperty Name="ziyaretci_resim" ColumnName="ziyaretci_resim" />
+          <ScalarProperty Name="ziyaretci_anahtar" ColumnName="ziyaretci_anahtar" />
+          <ScalarProperty Name="ziyaret_durum" ColumnName="ziyaret_durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
