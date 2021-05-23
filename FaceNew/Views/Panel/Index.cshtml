@@ -1,38 +1,89 @@
-﻿@*@using FaceNew.Models.Entity
-@model List<personel>*@
-@{ ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutPanel.cshtml"; }
-
-<h2 class="well">Personeller</h2>
-
-@*<div style="margin-bottom:15px; margin-top:15px;">
-    <input type="text" class="form-control" placeholder="Personel Ara" />
-</div>
-
-<table class="table table-bordered">
-    <tr class=" alert-success">
-        <th>Personel Id</th>
-        <th>Kullanici Adi</th>
-        <th>Kullanici Sifre</th>
-        <th>Personel Adi Soyadi</th>
-        <th>Personel Mail</th>
-        <th>Personel Adres</th>
-        <th>Personel Telefon</th>
-        <th>Personel Güncelle</th>
-    </tr>
-    @foreach (var prs in Model)
-    {
-<tr>
-    <td>@prs.personel_ID</td>
-    <td>@prs.kullanıcı_ADI</td>
-    <td>@prs.kullanıcı_sifre</td>
-    <td>@prs.Padsoyad</td>
-    <td>@prs.mail</td>
-    <td>@prs.adres</td>
-    <td>@prs.telefon</td>
-    <td><a href="/Panel/PersonelGetir/@prs.personel_ID" class="btn btn-success">Güncelle</a></td>
-
-
-</tr>
+﻿@model FaceNew.Models.Entity.personel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
-</table>*@
+
+<h2 class="alert-success">Yüz Tanıma Sistemleri: Kullanıcı Panel Ayarları</h2>
+
+@using (Html.BeginForm("Index2", "Panel", FormMethod.Post))
+{
+
+    <table class="table table-bordered" style="margin-top:30px">
+
+        <tr>
+            <td>
+                <label style="font-weight:bold"> Kullanıcı Adınız:</label> @HttpContext.Current.User.Identity.Name
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                <label style="font-weight:bold"> Personel ID:</label>
+
+                @Html.TextBoxFor(x => x.personel_ID, new { @class = "form-control", @readonly = "readonly" })
+            </td>
+        </tr>
+
+
+
+
+
+
+        <tr>
+            <td>
+                <label style="font-weight:bold">
+                    Kullanıcı Şifre:
+                </label>
+                @Html.TextBoxFor(x => x.kullanıcı_sifre, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label style="font-weight:bold">
+                    Personel Adı:
+                </label>
+                @Html.TextBoxFor(x => x.Padsoyad, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        
+
+        <tr>
+            <td>
+                <label style="font-weight:bold">
+                    Personel Mail:
+                </label>
+                @Html.TextBoxFor(x => x.mail, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label style="font-weight:bold">
+                    Personel Adres:
+                </label>
+                @Html.TextBoxFor(x => x.adres, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label style="font-weight:bold">
+                    Personel Telefon:
+                </label>
+                @Html.TextBoxFor(x => x.telefon, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button class="btn btn-danger">Bilgileri Güncelle</button>
+            </td>
+        </tr>
+    </table>
+}
+

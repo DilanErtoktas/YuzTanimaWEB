@@ -1,0 +1,43 @@
+﻿@using FaceNew.Models.Entity
+@model List<ziyaretci>
+@{ ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_LayoutPanel.cshtml"; }
+
+<h2 class="alert-success">Randevular</h2>
+
+<div style="margin-bottom:15px; margin-top:15px;">
+    <input type="text" class="form-control" placeholder="Ziyaretci Ara" />
+</div>
+
+<table class="table table-bordered">
+    <tr class=" alert-success">
+        <th>Ziyaretci Id</th>
+        <th>Kimlik No</th>
+        <th>Firma ID</th>
+        <th>Ziyaretci Ad Soyad</th>
+        <th>Ziyaretci Mail</th>
+        <th>Ziyaretci Adres</th>
+        <th>Ziyaretci Telefon</th>
+        <th>Ziyaret Sebebi</th>
+        <th>Ziyaret Saati</th>
+        <th>Ziyaretci Reddet</th>
+        <th>Ziyaretci Onayla</th>
+    </tr>
+    @foreach (var zyr in Model)
+    {
+<tr>
+    <td>@zyr.ziyaretci_ID</td>
+    <td>@zyr.kimlik_nu</td>
+    <td>@zyr.firma_ID</td>
+    <td>@zyr.isimsoyisim</td>
+    <td>@zyr.mail</td>
+    <td>@zyr.adres</td>
+    <td>@zyr.telefon</td>
+    <td>@zyr.ziyaret_sebebi</td>
+    <td>@zyr.ziyaret_saati</td>
+    <td><a href="/RandevuKullanıcı/ZiyaretciReddet/@zyr.ziyaretci_ID" class="btn btn-danger">Reddet</a></td>
+    <td><a href="/RandevuKullanıcı/ZiyaretciGetir/@zyr.ziyaretci_ID" class="btn btn-success">Onayla</a></td>
+
+
+</tr>}
+</table>

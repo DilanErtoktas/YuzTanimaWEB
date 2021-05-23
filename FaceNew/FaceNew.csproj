@@ -131,12 +131,14 @@
     <Compile Include="Controllers\AnasayfaController.cs" />
     <Compile Include="Controllers\BirimController.cs" />
     <Compile Include="Controllers\FirmalarController.cs" />
+    <Compile Include="Controllers\GirisCikisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KameraEkraniController.cs" />
     <Compile Include="Controllers\KameralarController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
+    <Compile Include="Controllers\RandevuKullanıcıController.cs" />
     <Compile Include="Controllers\RaporController.cs" />
     <Compile Include="Controllers\VitrinController.cs" />
     <Compile Include="Controllers\ZiyaretciController.cs" />
@@ -419,6 +421,9 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\KameraEkrani\Index.cshtml" />
     <Content Include="Views\Panel\Index.cshtml" />
+    <Content Include="Views\RandevuKullanıcı\Index.cshtml" />
+    <Content Include="Views\RandevuKullanıcı\ZiyaretciGetir.cshtml" />
+    <Content Include="Views\GirisCikis\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

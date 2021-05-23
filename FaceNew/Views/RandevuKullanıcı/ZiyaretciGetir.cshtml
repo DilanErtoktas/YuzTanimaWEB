@@ -1,0 +1,32 @@
+﻿@model FaceNew.Models.Entity.ziyaretci
+@{ ViewBag.Title = "ZiyaretciGetir";
+                Layout = "~/Views/Shared/_LayoutPanel.cshtml"; }
+
+@using (Html.BeginForm("ZiyaretciOnayla", "RandevuKullanıcı", FormMethod.Post))
+{
+<div style="margin-bottom:15px"></div>
+                <div class="form-group">
+                    @Html.LabelFor(z => z.ziyaretci_ID)
+                    @Html.TextBoxFor(z => z.ziyaretci_ID, new { @class = "form-control" })
+                    <br />
+
+                    <label>Kullanici Kimlik No</label>
+                    @Html.TextBoxFor(z => z.kimlik_nu, new { @class = "form-control" })
+                    <label>Firma Id</label>
+                    @Html.TextBoxFor(z => z.firma_ID, new { @class = "form-control" })
+                    <label>Ziyaretci Ad Soyad</label>
+                    @Html.TextBoxFor(z => z.isimsoyisim, new { @class = "form-control" })
+                    <label>Ziyaretci Mail</label>
+                    @Html.TextBoxFor(z => z.mail, new { @class = "form-control" })
+                    <label>Adres</label>
+                    @Html.TextBoxFor(z => z.adres, new { @class = "form-control" })
+                    <label>Telefon</label>
+                    @Html.TextBoxFor(z => z.telefon, new { @class = "form-control" })
+                    <label>Ziyaret Sebebi</label>
+                    @Html.TextBoxFor(z => z.ziyaret_sebebi, new { @class = "form-control" })
+                    <label>Ziyaret Saati</label>
+                    @Html.TextBoxFor(z => z.ziyaret_saati, new { @class = "form-control" })
+                </div>
+                                <div>
+                                    <button class="btn btn-danger">Onayla</button>
+                                </div>}
