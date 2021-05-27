@@ -1,5 +1,5 @@
-﻿@*@using FaceNew.Models.Entity
-@model List<personel>
+﻿@using FaceNew.Models.Entity
+@model List<rapor>
 @{ ViewBag.Title = "Index";
                 Layout = "~/Views/Shared/Layout.cshtml"; }
 
@@ -16,20 +16,17 @@
         <th>Personel Çıkış</th>
         <th>Oda Id</th>
         <th>Personel Birim Id</th>
-        <th>Personel Son Konum</th>
 
     </tr>
     @foreach (var rapor in Model)
     {
 <tr>
     <td>@rapor.personel_ID</td>
-    <td class=" alert-danger">Giris Saati</td>
-    <td class=" alert-danger">Cikis Saati</td>
+    <td >@rapor.giris_saat</td>
+    <td>@rapor.cıkıs_saat</td>
     <td>@rapor.oda_ID</td>
     <td>@rapor.birim_ID</td>
-    <td>Son konum</td>
-
-
+    
 
 </tr>}
-</table>*@
+</table>

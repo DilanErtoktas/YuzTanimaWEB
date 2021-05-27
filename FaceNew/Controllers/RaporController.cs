@@ -12,7 +12,7 @@ namespace FaceNew.Controllers
         facerecEntities db = new facerecEntities();
         public ActionResult Index()
         {
-            var degerler = db.personel.ToList();
+            var degerler = db.rapor.ToList();
             return View(degerler);
         }
     }

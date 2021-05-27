@@ -91,5 +91,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="rapor">
+      <EntityTypeMapping TypeName="facerecModel.rapor">
+        <MappingFragment StoreEntitySet="rapor">
+          <ScalarProperty Name="birim_ID" ColumnName="birim_ID" />
+          <ScalarProperty Name="oda_ID" ColumnName="oda_ID" />
+          <ScalarProperty Name="cıkıs_saat" ColumnName="cıkıs_saat" />
+          <ScalarProperty Name="giris_saat" ColumnName="giris_saat" />
+          <ScalarProperty Name="personel_ID" ColumnName="personel_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ziyaretci_raporu">
+      <EntityTypeMapping TypeName="facerecModel.ziyaretci_raporu">
+        <MappingFragment StoreEntitySet="ziyaretci_raporu">
+          <ScalarProperty Name="ihlal" ColumnName="ihlal" />
+          <ScalarProperty Name="kamera_görüs_saati" ColumnName="kamera_görüs_saati" />
+          <ScalarProperty Name="son_konumu" ColumnName="son_konumu" />
+          <ScalarProperty Name="ziyaretci_ID" ColumnName="ziyaretci_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

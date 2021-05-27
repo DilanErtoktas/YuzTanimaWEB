@@ -18,6 +18,7 @@ namespace FaceNew.Models.Entity
         public personel_birim()
         {
             this.personel = new HashSet<personel>();
+            this.rapor = new HashSet<rapor>();
         }
     
         public short birim_ID { get; set; }
@@ -25,5 +26,7 @@ namespace FaceNew.Models.Entity
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<personel> personel { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<rapor> rapor { get; set; }
     }
 }

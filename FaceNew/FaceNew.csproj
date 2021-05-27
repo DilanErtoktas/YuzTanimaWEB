@@ -138,11 +138,13 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
+    <Compile Include="Controllers\RandevuController.cs" />
     <Compile Include="Controllers\RandevuKullanıcıController.cs" />
     <Compile Include="Controllers\RaporController.cs" />
     <Compile Include="Controllers\VitrinController.cs" />
     <Compile Include="Controllers\ZiyaretciController.cs" />
     <Compile Include="Controllers\ZiyaretciFormController.cs" />
+    <Compile Include="Controllers\ZiyaretciRaporController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,10 +178,16 @@
     <Compile Include="Models\Entity\personel_birim.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\rapor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\ziyaretci.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\ziyaretci_raporu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -424,6 +432,9 @@
     <Content Include="Views\RandevuKullanıcı\Index.cshtml" />
     <Content Include="Views\RandevuKullanıcı\ZiyaretciGetir.cshtml" />
     <Content Include="Views\GirisCikis\Index.cshtml" />
+    <Content Include="Views\Randevu\Index.cshtml" />
+    <Content Include="yeni\Yeni klasör.rar" />
+    <Content Include="Views\ZiyaretciRapor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

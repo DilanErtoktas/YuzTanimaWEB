@@ -55,6 +55,16 @@
     <Property Name="birim_ID" Type="smallint" Nullable="false" />
     <Property Name="birimi" Type="nvarchar" MaxLength="20" />
   </EntityType>
+  <EntityType Name="rapor">
+    <Key>
+      <PropertyRef Name="personel_ID" />
+    </Key>
+    <Property Name="personel_ID" Type="smallint" Nullable="false" />
+    <Property Name="giris_saat" Type="smalldatetime" />
+    <Property Name="cıkıs_saat" Type="smalldatetime" />
+    <Property Name="oda_ID" Type="smallint" />
+    <Property Name="birim_ID" Type="smallint" />
+  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -82,6 +92,15 @@
     <Property Name="ziyaretci_resim" Type="nvarchar" MaxLength="50" />
     <Property Name="ziyaretci_anahtar" Type="char" MaxLength="1" />
     <Property Name="ziyaret_durum" Type="bit" />
+  </EntityType>
+  <EntityType Name="ziyaretci_raporu">
+    <Key>
+      <PropertyRef Name="ziyaretci_ID" />
+    </Key>
+    <Property Name="ziyaretci_ID" Type="smallint" Nullable="false" />
+    <Property Name="son_konumu" Type="char" MaxLength="1" />
+    <Property Name="kamera_görüs_saati" Type="smalldatetime" />
+    <Property Name="ihlal" Type="bit" />
   </EntityType>
   <Association Name="FK__kamera__firma_ID__1920BF5C">
     <End Role="firma" Type="Self.firma" Multiplicity="0..1" />
@@ -131,6 +150,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__rapor__oda_ID__1BFD2C07">
+    <End Role="oda" Type="Self.oda" Multiplicity="0..1" />
+    <End Role="rapor" Type="Self.rapor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oda">
+        <PropertyRef Name="oda_ID" />
+      </Principal>
+      <Dependent Role="rapor">
+        <PropertyRef Name="oda_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__rapor__personel___1B0907CE">
+    <End Role="personel" Type="Self.personel" Multiplicity="1" />
+    <End Role="rapor" Type="Self.rapor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="personel">
+        <PropertyRef Name="personel_ID" />
+      </Principal>
+      <Dependent Role="rapor">
+        <PropertyRef Name="personel_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__ziyaretci__firma__1ED998B2">
     <End Role="firma" Type="Self.firma" Multiplicity="0..1" />
     <End Role="ziyaretci" Type="Self.ziyaretci" Multiplicity="*" />
@@ -155,6 +198,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__ziyaretci__ziyar__21B6055D">
+    <End Role="ziyaretci" Type="Self.ziyaretci" Multiplicity="1" />
+    <End Role="ziyaretci_raporu" Type="Self.ziyaretci_raporu" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ziyaretci">
+        <PropertyRef Name="ziyaretci_ID" />
+      </Principal>
+      <Dependent Role="ziyaretci_raporu">
+        <PropertyRef Name="ziyaretci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_personel_personel_birim">
     <End Role="personel_birim" Type="Self.personel_birim" Multiplicity="0..1" />
     <End Role="personel" Type="Self.personel" Multiplicity="*" />
@@ -167,14 +222,28 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_rapor_personel_birim">
+    <End Role="personel_birim" Type="Self.personel_birim" Multiplicity="0..1" />
+    <End Role="rapor" Type="Self.rapor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personel_birim">
+        <PropertyRef Name="birim_ID" />
+      </Principal>
+      <Dependent Role="rapor">
+        <PropertyRef Name="birim_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="facerecModelStoreContainer">
     <EntitySet Name="firma" EntityType="Self.firma" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="kamera" EntityType="Self.kamera" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="oda" EntityType="Self.oda" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="personel" EntityType="Self.personel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="personel_birim" EntityType="Self.personel_birim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rapor" EntityType="Self.rapor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ziyaretci" EntityType="Self.ziyaretci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ziyaretci_raporu" EntityType="Self.ziyaretci_raporu" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__kamera__firma_ID__1920BF5C" Association="Self.FK__kamera__firma_ID__1920BF5C">
       <End Role="firma" EntitySet="firma" />
       <End Role="kamera" EntitySet="kamera" />
@@ -191,6 +260,14 @@
       <End Role="oda" EntitySet="oda" />
       <End Role="personel" EntitySet="personel" />
     </AssociationSet>
+    <AssociationSet Name="FK__rapor__oda_ID__1BFD2C07" Association="Self.FK__rapor__oda_ID__1BFD2C07">
+      <End Role="oda" EntitySet="oda" />
+      <End Role="rapor" EntitySet="rapor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__rapor__personel___1B0907CE" Association="Self.FK__rapor__personel___1B0907CE">
+      <End Role="personel" EntitySet="personel" />
+      <End Role="rapor" EntitySet="rapor" />
+    </AssociationSet>
     <AssociationSet Name="FK__ziyaretci__firma__1ED998B2" Association="Self.FK__ziyaretci__firma__1ED998B2">
       <End Role="firma" EntitySet="firma" />
       <End Role="ziyaretci" EntitySet="ziyaretci" />
@@ -199,9 +276,17 @@
       <End Role="personel" EntitySet="personel" />
       <End Role="ziyaretci" EntitySet="ziyaretci" />
     </AssociationSet>
+    <AssociationSet Name="FK__ziyaretci__ziyar__21B6055D" Association="Self.FK__ziyaretci__ziyar__21B6055D">
+      <End Role="ziyaretci" EntitySet="ziyaretci" />
+      <End Role="ziyaretci_raporu" EntitySet="ziyaretci_raporu" />
+    </AssociationSet>
     <AssociationSet Name="FK_personel_personel_birim" Association="Self.FK_personel_personel_birim">
       <End Role="personel_birim" EntitySet="personel_birim" />
       <End Role="personel" EntitySet="personel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rapor_personel_birim" Association="Self.FK_rapor_personel_birim">
+      <End Role="personel_birim" EntitySet="personel_birim" />
+      <End Role="rapor" EntitySet="rapor" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

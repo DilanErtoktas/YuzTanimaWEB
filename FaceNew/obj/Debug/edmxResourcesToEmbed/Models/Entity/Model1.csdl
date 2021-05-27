@@ -32,6 +32,7 @@
     <Property Name="oda_konum_mesafe" Type="Int16" />
     <Property Name="oda_yol_haritası" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="personel" Relationship="Self.FK__personel__oda_ID__15502E78" FromRole="oda" ToRole="personel" />
+    <NavigationProperty Name="rapor" Relationship="facerecModel.FK__rapor__oda_ID__1BFD2C07" FromRole="oda" ToRole="rapor" />
   </EntityType>
   <EntityType Name="personel">
     <Key>
@@ -58,6 +59,7 @@
     <NavigationProperty Name="oda" Relationship="Self.FK__personel__oda_ID__15502E78" FromRole="personel" ToRole="oda" />
     <NavigationProperty Name="ziyaretci" Relationship="Self.FK__ziyaretci__perso__1FCDBCEB" FromRole="personel" ToRole="ziyaretci" />
     <NavigationProperty Name="personel_birim" Relationship="Self.FK_personel_personel_birim" FromRole="personel" ToRole="personel_birim" />
+    <NavigationProperty Name="rapor" Relationship="facerecModel.FK__rapor__personel___1B0907CE" FromRole="personel" ToRole="rapor" />
   </EntityType>
   <EntityType Name="personel_birim">
     <Key>
@@ -66,6 +68,7 @@
     <Property Name="birim_ID" Type="Int16" Nullable="false" />
     <Property Name="birimi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="personel" Relationship="Self.FK_personel_personel_birim" FromRole="personel_birim" ToRole="personel" />
+    <NavigationProperty Name="rapor" Relationship="facerecModel.FK_rapor_personel_birim" FromRole="personel_birim" ToRole="rapor" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -96,6 +99,7 @@
     <Property Name="ziyaret_durum" Type="Boolean" />
     <NavigationProperty Name="firma" Relationship="Self.FK__ziyaretci__firma__1ED998B2" FromRole="ziyaretci" ToRole="firma" />
     <NavigationProperty Name="personel" Relationship="Self.FK__ziyaretci__perso__1FCDBCEB" FromRole="ziyaretci" ToRole="personel" />
+    <NavigationProperty Name="ziyaretci_raporu" Relationship="facerecModel.FK__ziyaretci__ziyar__21B6055D" FromRole="ziyaretci" ToRole="ziyaretci_raporu" />
   </EntityType>
   <Association Name="FK__kamera__firma_ID__1920BF5C">
     <End Role="firma" Type="Self.firma" Multiplicity="0..1" />
@@ -217,5 +221,94 @@
       <End Role="personel_birim" EntitySet="personel_birim" />
       <End Role="personel" EntitySet="personel" />
     </AssociationSet>
+    <EntitySet Name="rapor" EntityType="facerecModel.rapor" />
+    <AssociationSet Name="FK__rapor__oda_ID__1BFD2C07" Association="facerecModel.FK__rapor__oda_ID__1BFD2C07">
+      <End Role="oda" EntitySet="oda" />
+      <End Role="rapor" EntitySet="rapor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__rapor__personel___1B0907CE" Association="facerecModel.FK__rapor__personel___1B0907CE">
+      <End Role="personel" EntitySet="personel" />
+      <End Role="rapor" EntitySet="rapor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rapor_personel_birim" Association="facerecModel.FK_rapor_personel_birim">
+      <End Role="personel_birim" EntitySet="personel_birim" />
+      <End Role="rapor" EntitySet="rapor" />
+    </AssociationSet>
+    <EntitySet Name="ziyaretci_raporu" EntityType="facerecModel.ziyaretci_raporu" />
+    <AssociationSet Name="FK__ziyaretci__ziyar__21B6055D" Association="facerecModel.FK__ziyaretci__ziyar__21B6055D">
+      <End Role="ziyaretci" EntitySet="ziyaretci" />
+      <End Role="ziyaretci_raporu" EntitySet="ziyaretci_raporu" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="rapor">
+    <Key>
+      <PropertyRef Name="personel_ID" />
+    </Key>
+    <Property Name="personel_ID" Type="Int16" Nullable="false" />
+    <Property Name="giris_saat" Type="DateTime" Precision="0" />
+    <Property Name="cıkıs_saat" Type="DateTime" Precision="0" />
+    <Property Name="oda_ID" Type="Int16" />
+    <Property Name="birim_ID" Type="Int16" />
+    <NavigationProperty Name="oda" Relationship="facerecModel.FK__rapor__oda_ID__1BFD2C07" FromRole="rapor" ToRole="oda" />
+    <NavigationProperty Name="personel" Relationship="facerecModel.FK__rapor__personel___1B0907CE" FromRole="rapor" ToRole="personel" />
+    <NavigationProperty Name="personel_birim" Relationship="facerecModel.FK_rapor_personel_birim" FromRole="rapor" ToRole="personel_birim" />
+  </EntityType>
+  <Association Name="FK__rapor__oda_ID__1BFD2C07">
+    <End Type="facerecModel.oda" Role="oda" Multiplicity="0..1" />
+    <End Type="facerecModel.rapor" Role="rapor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oda">
+        <PropertyRef Name="oda_ID" />
+      </Principal>
+      <Dependent Role="rapor">
+        <PropertyRef Name="oda_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__rapor__personel___1B0907CE">
+    <End Type="facerecModel.personel" Role="personel" Multiplicity="1" />
+    <End Type="facerecModel.rapor" Role="rapor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="personel">
+        <PropertyRef Name="personel_ID" />
+      </Principal>
+      <Dependent Role="rapor">
+        <PropertyRef Name="personel_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rapor_personel_birim">
+    <End Type="facerecModel.personel_birim" Role="personel_birim" Multiplicity="0..1" />
+    <End Type="facerecModel.rapor" Role="rapor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personel_birim">
+        <PropertyRef Name="birim_ID" />
+      </Principal>
+      <Dependent Role="rapor">
+        <PropertyRef Name="birim_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ziyaretci_raporu">
+    <Key>
+      <PropertyRef Name="ziyaretci_ID" />
+    </Key>
+    <Property Name="ziyaretci_ID" Type="Int16" Nullable="false" />
+    <Property Name="son_konumu" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="kamera_görüs_saati" Type="DateTime" Precision="0" />
+    <Property Name="ihlal" Type="Boolean" />
+    <NavigationProperty Name="ziyaretci" Relationship="facerecModel.FK__ziyaretci__ziyar__21B6055D" FromRole="ziyaretci_raporu" ToRole="ziyaretci" />
+  </EntityType>
+  <Association Name="FK__ziyaretci__ziyar__21B6055D">
+    <End Type="facerecModel.ziyaretci" Role="ziyaretci" Multiplicity="1" />
+    <End Type="facerecModel.ziyaretci_raporu" Role="ziyaretci_raporu" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ziyaretci">
+        <PropertyRef Name="ziyaretci_ID" />
+      </Principal>
+      <Dependent Role="ziyaretci_raporu">
+        <PropertyRef Name="ziyaretci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

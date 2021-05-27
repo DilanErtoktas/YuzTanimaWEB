@@ -32,5 +32,7 @@ namespace FaceNew.Models.Entity
         public virtual DbSet<personel_birim> personel_birim { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<ziyaretci> ziyaretci { get; set; }
+        public virtual DbSet<rapor> rapor { get; set; }
+        public virtual DbSet<ziyaretci_raporu> ziyaretci_raporu { get; set; }
     }
 }

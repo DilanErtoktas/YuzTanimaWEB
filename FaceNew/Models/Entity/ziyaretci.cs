@@ -30,5 +30,6 @@ namespace FaceNew.Models.Entity
     
         public virtual firma firma { get; set; }
         public virtual personel personel { get; set; }
+        public virtual ziyaretci_raporu ziyaretci_raporu { get; set; }
     }
 }

@@ -1,0 +1,49 @@
+﻿@using FaceNew.Models.Entity
+@model List<ziyaretci>
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml"; }
+
+<h2 class="well">Randevular</h2>
+
+<div style="margin-bottom:15px; margin-top:15px;">
+    <input type="text" class="form-control" placeholder="Ziyaretçi Ara" />
+</div>
+
+<table class="table table-bordered">
+    <tr class=" alert-success">
+        <th>Ziyaretçi ID</th>
+        <th>Ziyaretçi TC</th>
+        <th>Firma ID</th>
+        <th>Ziyaretçi Adı Soyadı</th>
+        <th>Ziyaretçi Mail</th>
+        <th>Ziyaretçi Adres</th>
+        <th>Ziyaretçi Telefon</th>
+        <th>Ziyaret Ettiği Personel</th>
+        <th>Ziyaret Sebebi</th>
+        <th>Ziyaret Tarihi</th>
+        <th>Ziyaretci Anahtar</th>
+        <th>Ziyaretci Resim</th>
+        <th>Ziyaret Durum</th>
+    </tr>
+    @foreach (var zyrt in Model)
+    {
+<tr>
+    <td>@zyrt.ziyaretci_ID</td>
+    <td>@zyrt.kimlik_nu</td>
+    <td>@zyrt.firma_ID</td>
+    <td>@zyrt.isimsoyisim</td>
+    <td>@zyrt.mail</td>
+    <td>@zyrt.adres</td>
+    <td>@zyrt.telefon</td>
+    <td>@zyrt.personel_ID</td>
+    <td>@zyrt.ziyaret_sebebi</td>
+    <td>@zyrt.ziyaret_saati</td>
+    <td>@zyrt.ziyaretci_resim</td>
+    <td>@zyrt.ziyaretci_anahtar</td>
+    <td class="alert-danger">@zyrt.ziyaret_durum</td>
+
+
+
+</tr>
+}
+</table>

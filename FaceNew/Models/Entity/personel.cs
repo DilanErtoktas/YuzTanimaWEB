@@ -45,5 +45,6 @@ namespace FaceNew.Models.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ziyaretci> ziyaretci { get; set; }
         public virtual personel_birim personel_birim { get; set; }
+        public virtual rapor rapor { get; set; }
     }
 }

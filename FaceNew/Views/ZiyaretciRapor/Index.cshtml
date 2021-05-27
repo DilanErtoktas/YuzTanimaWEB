@@ -1,0 +1,33 @@
+﻿@using FaceNew.Models.Entity
+@model List<ziyaretci_raporu>
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml"; }
+
+<h2 class="well">Ziyaretci Raporu</h2>
+
+<div style="margin-bottom:15px; margin-top:15px;">
+    <input type="text" class="form-control" placeholder="Rapor Ara" />
+</div>
+
+<table class="table table-bordered">
+    <tr class=" btn-danger">
+        <th>Ziyaretci Id</th>
+        <th>Son Konumu</th>
+        <th>Kamera Görüş Saati</th>
+        <th>İhlal Durumu</th>
+        
+
+    </tr>
+    @foreach (var ziyaretci_raporu in Model)
+    {
+<tr>
+    <td>@ziyaretci_raporu.ziyaretci_ID</td>
+    <td>@ziyaretci_raporu.son_konumu</td>
+    <td>@ziyaretci_raporu.kamera_görüs_saati</td>
+    <td>@ziyaretci_raporu.ihlal</td>
+    
+
+
+</tr>
+}
+</table>
